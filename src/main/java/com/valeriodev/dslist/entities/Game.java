@@ -1,5 +1,6 @@
 package com.valeriodev.dslist.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,18 +18,22 @@ public class Game {
   private Integer ano;
   private String genero;
   private String plataforma;
+  private Double pontuacao;
   private String imagemUrl;
+  @Column(columnDefinition = "TEXT")
   private String descricaoCurta;
+  @Column(columnDefinition = "TEXT")
   private String descricaoLonga;
 
   public Game(){}
-  public Game(Long id, String titulo, Integer ano, String genero, String plataforma, String imagemUrl,
+  public Game(Long id, String titulo, Integer ano, String genero, String plataforma, Double pontuacao, String imagemUrl,
       String descricaoCurta, String descricaoLonga) {
     this.id = id;
     this.titulo = titulo;
     this.ano = ano;
     this.genero = genero;
     this.plataforma = plataforma;
+    this.pontuacao = pontuacao;
     this.imagemUrl = imagemUrl;
     this.descricaoCurta = descricaoCurta;
     this.descricaoLonga = descricaoLonga;
@@ -60,8 +65,14 @@ public class Game {
   public String getPlataforma() {
     return plataforma;
   }
+  public Double getPontuacao() {
+    return pontuacao;
+  }
   public void setPlataforma(String plataforma) {
     this.plataforma = plataforma;
+  }
+  public void setPontuacao(Double pontuacao) {
+    this.pontuacao = pontuacao;
   }
   public String getImagemUrl() {
     return imagemUrl;
