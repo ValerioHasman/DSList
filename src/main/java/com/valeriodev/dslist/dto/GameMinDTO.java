@@ -1,6 +1,7 @@
 package com.valeriodev.dslist.dto;
 
 import com.valeriodev.dslist.entities.Game;
+import com.valeriodev.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
   
@@ -18,6 +19,14 @@ public class GameMinDTO {
     this.ano = entity.getAno();
     this.imagemUrl = entity.getImagemUrl();
     this.descricaoCurta = entity.getDescricaoCurta();
+  }
+
+  public GameMinDTO(GameMinProjection projection) {
+    this.id = projection.getId();
+    this.titulo = projection.getTitulo();
+    this.ano = projection.getAno();
+    this.imagemUrl = projection.getImagemUrl();
+    this.descricaoCurta = projection.getDescricaoCurta();
   }
 
   public Long getId() {
